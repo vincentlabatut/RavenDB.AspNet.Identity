@@ -57,6 +57,8 @@ namespace RavenDB.AspNet.Identity
             var userByName = new IdentityUserByUserName(user.Id, user.UserName);
             this.session.Store(userByName, Util.GetIdentityUserByUserNameId(user.UserName));
 
+            this.session.SaveChanges();
+
             return Task.FromResult(true);
         }
 
